@@ -11,7 +11,7 @@ describe DockingStation do
   end
 
   it "raises exception if no place" do
-    10.times {subject.dock(Bike.new)}
+    20.times {subject.dock(Bike.new)}
     expect {subject.dock(Bike.new)}.to raise_exception "No space for more bike"
   end
 
@@ -26,10 +26,11 @@ describe DockingStation do
   it { is_expected.to respond_to(:bike) }
 
   it "docks something" do
+
+    bike_count1 = subject.bike_count.length
     bike = Bike.new
-    bike_count = subject.counter.length
     expect(subject.dock(bike)).to eq bike
-    expect(subject.counter.length).to eq(bike_count + 1)
+    expect(subject.bike_count.length).to eq (bike_count1 + 1)
   end
 
   it "throws an exception" do

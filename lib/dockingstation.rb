@@ -1,30 +1,27 @@
 class DockingStation
 
-attr_reader :counter
+attr_reader :bike_count
 
 def initialize
-  @maxbike = 10
-  @counter = []
+  @maxbike = 20
+  @bike_count = []
 end
 
 def release_bike
-  raise "No more bike" unless @counter.length > 0
-  return @counter.pop
+  raise "No more bike" unless @bike_count.length > 0
+  return @bike_count.pop
 end
 
 def dock(bike)
-  fail "No space for more bike" unless @counter.length < @maxbike
-  @counter.push(bike)
+  fail "No space for more bike" unless @bike_count.length < @maxbike
+  @bike_count.push(bike)
   bike
 end
 
 def bike
-  @counter.pop
+  @bike_count.pop
 end
 
-def bike_count
-  return @counter.size
-end
 
 end
 
