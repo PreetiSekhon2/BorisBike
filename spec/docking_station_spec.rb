@@ -1,4 +1,4 @@
-require 'dockingstation'
+require 'docking_station'
 
 describe DockingStation do
   it "responds to release bike method" do
